@@ -28,6 +28,7 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
+// let文の解析
 type LetStatement struct {
 	Token token.Token // Type token.LETのトークン
 	Name  *Identifier
@@ -44,3 +45,12 @@ type Identifier struct {
 
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
+
+//  return文の解析
+type ReturnStatement struct {
+	Token       token.Token // 'return' トークン
+	ReturnValue Expression
+}
+
+func (rs *ReturnStatement) statementNode()       {}
+func (rs *ReturnStatement) TokenLiteral() string { return rs.Token.Literal }
