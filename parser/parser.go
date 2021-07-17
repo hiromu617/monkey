@@ -17,7 +17,7 @@ const (
 	PRODUCT     // *
 	PREFIX      // -X or !X
 	CALL        // myFunction(X)
-	INDEX // array[index]
+	INDEX       // array[index]
 )
 
 var precedences = map[token.TokenType]int{
@@ -406,7 +406,7 @@ func (p *Parser) parseCallExpression(function ast.Expression) ast.Expression {
 // }
 
 func (p *Parser) parseArrayLiteral() ast.Expression {
-	array := &ast.ArrayLitaral{Token: p.curToken}
+	array := &ast.ArrayLiteral{Token: p.curToken}
 
 	array.Elements = p.parseExpressionList(token.RBRACKET)
 

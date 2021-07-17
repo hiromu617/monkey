@@ -275,14 +275,14 @@ func (ce *CallExpression) String() string {
 	return out.String()
 }
 
-type ArrayLitaral struct {
+type ArrayLiteral struct {
 	Token    token.Token // '['トークン
 	Elements []Expression
 }
 
-func (al *ArrayLitaral) expressionNode()      {}
-func (al *ArrayLitaral) TokenLiteral() string { return al.Token.Literal }
-func (al *ArrayLitaral) String() string {
+func (al *ArrayLiteral) expressionNode()      {}
+func (al *ArrayLiteral) TokenLiteral() string { return al.Token.Literal }
+func (al *ArrayLiteral) String() string {
 	var out bytes.Buffer
 
 	elements := []string{}
